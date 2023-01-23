@@ -19,3 +19,25 @@
     </tr>
   <% end %>
 </table>
+
+
+<h1>Warehouse Products</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Warehouse</th>
+      <th>Product</th>
+      <th>Product Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @warehouse_products.each do |warehouse_product| %>
+      <tr>
+        <td><%= warehouse_product.warehouse.name %></td>
+        <td><%= warehouse_product.product.name %></td>
+        <td><%= warehouse_product.product_quantity %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

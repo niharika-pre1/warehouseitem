@@ -18,12 +18,15 @@
   <% end %>
 </table>
 
+
+
 <h1>Supplier Products</h1>
 <table>
   <thead>
     <tr>
       <th>Supplier</th>
       <th>Product</th>
+      <th>Product Quantity</th>
     </tr>
   </thead>
   <tbody>
@@ -31,6 +34,8 @@
       <tr>
         <td><%= supplier_product.supplier.name %></td>
         <td><%= supplier_product.product.name %></td>
+        <td><%= supplier_product.product_quantity %></td>
+
       </tr>
     <% end %>
   </tbody>

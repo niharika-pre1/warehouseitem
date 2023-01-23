@@ -9,12 +9,11 @@ Rails.application.routes.draw do
  
   resources :supplier_products
   resources :products 
-  
+  resources :shopkeeper_products
   post 'users/index' 
   resources :suppliers
-  resources :warehouses do
+  resources :warehouses 
   resources :warehouse_products
-end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
