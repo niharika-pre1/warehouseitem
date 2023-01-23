@@ -1,0 +1,16 @@
+<h1> Warehouse</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @warehouses.each do |warehouse| %>
+    <tr>
+      <td><%= warehouse.name %></td>
+       <td><%= link_to 'Show', warehouse_path(warehouse) %></td>
+    
+    </tr>
+  <% end %>
+</table>
