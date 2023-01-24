@@ -12,8 +12,8 @@
       <td><%= product.name %></td>
       <td><%= product.price %></td>
       <td><%= product.description %></td>
-      <td><%= button_to 'add_item', users_index_path %></td>
-    
+      <td><%= button_to 'add_item', add_item_product_path(product) %></td>
+     
     </tr>
   <% end %>
 </table>

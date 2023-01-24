@@ -1,19 +1,20 @@
 Rails.application.routes.draw do
-  get 'warehouse_products/index'
-  get 'shopkeeper_products/index'
-  get 'supplier_products/index'
-  get 'products/index'
+ 
   root "warehouses#index"
   get 'shopkeepers/index'
-  get 'suppliers/index'
+  post 'shopkeepers/index'
  
   resources :supplier_products
-  resources :products 
+  resources :products do
+    member do
+    post :add_item
+    end
+  end
   resources :shopkeeper_products
-  post 'users/index' 
   resources :suppliers
   resources :warehouses 
   resources :warehouse_products
+  resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
