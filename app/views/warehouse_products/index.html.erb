@@ -2,17 +2,16 @@
 <table>
   <thead>
     <tr>
-      <th>Warehouse</th>
-      <th>Product</th>
-      <th>Product Quantity</th>
+     <th>Product Name</th>
+     <th>Product Quantity</th>
     </tr>
   </thead>
   <tbody>
-    <% @warehouse_products.each do |warehouse_product| %>
+   <% @warehouse_products.each do |warehouse_product| %>
       <tr>
-        <td><%= warehouse_product.warehouse.name %></td>
-        <td><%= warehouse_product.product.name %></td>
-        <td><%= warehouse_product.product_quantity %></td>
+      <td><%= warehouse_product.product_id %></td>
+      <td><%= warehouse_product.product_quantity %></td>
+      <td><%= button_to 'add_item',  add_item_warehouse_product_path(warehouse_product) %></td>
 
       </tr>
     <% end %>

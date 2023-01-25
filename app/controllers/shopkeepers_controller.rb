@@ -16,7 +16,8 @@ class ShopkeepersController < ApplicationController
   def show
     @shopkeeper = Shopkeeper.find(params[:id])
   end
- 
+
+  
   private
     def shopkeeper_params
       params.require(:shopkeeper).permit(:name, :email)

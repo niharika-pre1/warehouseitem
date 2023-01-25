@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get 'shopkeepers/index'
   post 'shopkeepers/index'
  
-  resources :supplier_products
+  resources :supplier_products do
+    member do
+    post :add_item
+    end
+  end
   resources :products do
     member do
     post :add_item
@@ -13,7 +17,11 @@ Rails.application.routes.draw do
   resources :shopkeeper_products
   resources :suppliers
   resources :warehouses 
-  resources :warehouse_products
+  resources :warehouse_products  do
+    member do
+    post :add_item
+    end
+  end
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

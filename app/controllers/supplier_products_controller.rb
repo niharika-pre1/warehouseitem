@@ -1,4 +1,5 @@
 class SupplierProductsController < ApplicationController
+  after_action :sub_item,only:[:add_item]
   def index 
     @supplier_products = SupplierProduct.all
   end
@@ -16,6 +17,27 @@ class SupplierProductsController < ApplicationController
       render :new
     end
   end
+
+  def add_item
+   warehouse = Warehouse.first
+   @supplier_product = SupplierProduct.find(params[:id])
+   @warehouse_products = WarehouseProduct.pluck(:supplier_product_id)
+   if @warehouse_products.include?(@supplier_product.id)
+    @warehouse_product = @supplier_product.warehouse_products.first
+    current_quantity = @warehouse_product.product_quantity
+    current_quantity = current_quantity.to_i
+    @warehouse_product.update(product_quantity:current_quantity + 1)
+   else
+    @warehouse_product = @supplier_product.warehouse_products.create(warehouse_id: params[:warehouse_id])
+       redirect_to warehouse_products_path   
+    end
+  end
+  
+  def sub_item
+    @supplier_product = SupplierProduct.find(params[:id])
+    @supplier_product.decrement!(:product_quantity) 
+  end
+
 
   private
   def supplier_product_params

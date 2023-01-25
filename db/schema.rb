@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_23_113801) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_25_092544) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -20,12 +20,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_23_113801) do
   end
 
   create_table "shopkeeper_products", force: :cascade do |t|
+    t.integer "warehouse_product_id"
     t.integer "shopkeeper_id"
     t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_quantity"
     t.index ["product_id"], name: "index_shopkeeper_products_on_product_id"
     t.index ["shopkeeper_id"], name: "index_shopkeeper_products_on_shopkeeper_id"
+    t.index ["warehouse_product_id"], name: "index_shopkeeper_products_on_warehouse_product_id"
   end
 
   create_table "supplier_products", force: :cascade do |t|
@@ -47,12 +50,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_23_113801) do
   end
 
   create_table "warehouse_products", force: :cascade do |t|
+    t.integer "supplier_product_id"
     t.integer "warehouse_id"
     t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "product_quantity"
     t.index ["product_id"], name: "index_warehouse_products_on_product_id"
+    t.index ["supplier_product_id"], name: "index_warehouse_products_on_supplier_product_id"
     t.index ["warehouse_id"], name: "index_warehouse_products_on_warehouse_id"
   end
 
