@@ -1,10 +1,10 @@
-<div class="container text-center">
-  <h1 class="text-primary">Warehouse Products</h1>
+ <div class="container text-center">
+<h1 class="text-danger">Warehouse Dashboard</h1>
 <table>
   <thead>
     <tr>
-     <th>Product Name</th>
-     <th>Product Quantity</th>
+     <th>Product</th>
+     <th>Remaining Quantity </th>
     </tr>
   </thead>
   <tbody>
@@ -12,8 +12,6 @@
       <tr>
       <td><div class="text-success"><%= warehouse_product.product.name %></td>
       <td><%= warehouse_product.product_quantity %></td>
-      <td><%= button_to 'add_item',add_item_shopkeeper_product_path(warehouse_product.product.id) %></td>
       </tr>
     <% end %>
   </tbody>
-</table>

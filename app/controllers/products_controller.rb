@@ -23,26 +23,22 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to products_url
-  end
-
-  def add_item
-     supplier = Supplier.first
-    @product = Product.find(params[:id])
-   @supplier_products = SupplierProduct.pluck(:product_id)
-    if @supplier_products.include?(@product.id)
-       @supplier_product = @product.supplier_products.first
-       current_quantity = @supplier_product.product_quantity
-       current_quantity = current_quantity.to_i
-       @supplier_product.update(product_quantity:current_quantity + 1)
-    else
-       @supplier_product = @product.supplier_products.create(supplier_id: params[:supplier_id],product_quantity: params[:product_quantity => 1])
-       redirect_to supplier_products_path
-    end
+    redirect_to products_path
   end
 
   private
   def product_params
     params.require(:product).permit(:name, :price, :description)
+  end
+
+  def sub_item(id)
+    byebug
+    sp = SupplierProduct.find_by(product_id: id)
+    if sp.product_quantity <= 0
+      sp.update(product_quantity: nil)
+    else
+      sp.update(product_quantity: 
+      sp.product_quantity - 1)
+    end
   end
 end
