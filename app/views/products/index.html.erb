@@ -1,5 +1,4 @@
-<div class="container text-center">
-  <h1 class="text-primary">Products</h1>
+<h1>Listing products</h1>
  
 <table>
   <tr>
@@ -10,10 +9,11 @@
  
   <% @products.each do |product| %>
     <tr>
-      <td><div class="text-success"><%= product.name %></td>
+      <td><%= product.name %></td>
       <td><%= product.price %></td>
       <td><%= product.description %></td>
-      <td><%= button_to 'add_item', add_item_supplier_product_path(product) %></td>
+      <td><%= button_to 'add_item', add_item_product_path(product) %></td>
+     
     </tr>
   <% end %>
 </table>
