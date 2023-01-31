@@ -1,19 +1,17 @@
-<h1>Listing products</h1>
- 
-<table>
+<h1  class="text-secondary"><center>Products</center></h1>
+<table class="table">
   <tr>
     <th>Name</th>
     <th>Price</th>
      <th>description</th>
   </tr>
- 
   <% @products.each do |product| %>
     <tr>
-      <td><%= product.name %></td>
+      <td class="text-success"><%= product.name %></td>
       <td><%= product.price %></td>
       <td><%= product.description %></td>
-      <td><%= button_to 'add_item', add_item_product_path(product) %></td>
-     
+      <td><%= button_to 'add_item', add_item_supplier_product_path(product),class: "btn btn-info" %></td>
     </tr>
   <% end %>
+    <td><%= link_to 'back', controller: 'dashboard' %></td>
 </table>

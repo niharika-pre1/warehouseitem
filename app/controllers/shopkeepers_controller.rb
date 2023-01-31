@@ -5,11 +5,11 @@ class ShopkeepersController < ApplicationController
 
   def create
     @shopkeeper = Shopkeeper.new(shopkeeper_params)
- 
+
     if @shopkeeper.save
-     redirect_to @shopkeeper
+      redirect_to @shopkeeper
     else
-    render 'new'
+      render 'new'
     end
   end
 
@@ -17,10 +17,9 @@ class ShopkeepersController < ApplicationController
     @shopkeeper = Shopkeeper.find(params[:id])
   end
 
-  
-  private
-    def shopkeeper_params
-      params.require(:shopkeeper).permit(:name, :email)
-    end
+private
+  def shopkeeper_params
+    params.require(:shopkeeper).permit(:name, :email)
+  end
 end
 

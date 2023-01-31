@@ -1,5 +1,5 @@
-<h1>Warehouse Products</h1>
-<table>
+<h1  class="text-primary"><center>Warehouse Products</center></h1>
+<table class="table ">
   <thead>
     <tr>
      <th>Product Name</th>
@@ -9,11 +9,13 @@
   <tbody>
    <% @warehouse_products.each do |warehouse_product| %>
       <tr>
-      <td><%= warehouse_product.product_id %></td>
+      <td class="text-success"><%= warehouse_product.product.name %></td>
       <td><%= warehouse_product.product_quantity %></td>
-      <td><%= button_to 'add_item',  add_item_warehouse_product_path(warehouse_product) %></td>
+      <td><%= link_to 'Edit', edit_warehouse_product_path(warehouse_product) %></td>
+      <td><%= button_to 'add_item',  add_item_shopkeeper_product_path(warehouse_product.product.id),class: "btn btn-warning" %></td>
 
       </tr>
     <% end %>
   </tbody>
+  <td><%= link_to 'back', controller: 'dashboard' %></td>
 </table>
