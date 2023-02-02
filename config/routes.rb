@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root "welcome#index"
   get 'dashboard/index'
-  get 'shopkeepers/index'
   resources :supplier_products do
     member do
     post :add_item

@@ -7,6 +7,13 @@
     <%= form.text_area :extended_price %>
   </p>
  
+  <% if flash.any? %> 
+  <% flash.each do |type, msg| %>
+  <div>
+   <%= msg %>
+  </div>
+  <% end %> 
+  <% end %>
   <p>
     <%= form.submit %>
   </p>

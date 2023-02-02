@@ -6,6 +6,7 @@ class WarehouseProductsController < ApplicationController
 
   def edit
     @warehouse_product = WarehouseProduct.find(params[:id])
+    flash[:message] = "Extended Price should be present"
   end
 
   def update

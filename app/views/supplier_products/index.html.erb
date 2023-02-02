@@ -8,12 +8,15 @@
   </thead>
   <tbody>
     <% @supplier_products.each do |supplier_product| %>
-      <tr>
-       <td class="text-success"><%= supplier_product.product.name %></td>
-       <td><%= supplier_product.product_quantity %></td>
-       <td><%= button_to 'add_item', add_item_warehouse_product_path(supplier_product.product.id),class:"btn btn-info" %></td>
-      </tr>
+    <td><% if supplier_product.product_quantity != 0 %></td>
+    <tr>
+    <td class="text-success"><%= supplier_product.product.name %></td>
+    <td><%= supplier_product.product_quantity %></td>
+    <td><%= button_to 'add_item', add_item_warehouse_product_path(supplier_product.product.id),class:"btn btn-info" %></td>
     <% end %>
+    <% end %>
+    </tr>
   </tbody>
   <td><%= link_to 'Back', controller: 'dashboard' %></td>
+  <td><%= link_to 'Category', controller: 'categories' %></td>
 </table>
