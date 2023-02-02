@@ -13,6 +13,7 @@ class ShopkeeperProductsController < ApplicationController
       shopkeeper_product = @product.shopkeeper_products.find_by(product_id: @product.id)
       shopkeeper_product_quantity =shopkeeper_product.product_quantity.to_i
       shopkeeper_product.update(product_quantity: shopkeeper_product_quantity + 1)
+      redirect_to shopkeeper_products_path   
     else
       shopkeeper_product = @product.shopkeeper_products.create(shopkeeper_id: shopkeeper.id, product_quantity: 1)
       redirect_to shopkeeper_products_path   

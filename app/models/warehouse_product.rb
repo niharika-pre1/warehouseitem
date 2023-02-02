@@ -5,7 +5,7 @@ class WarehouseProduct < ApplicationRecord
   def total_price
     shopkeeper_product = ShopkeeperProduct.find_by(product_id: product.id)
     quantity = shopkeeper_product&.product_quantity || 0
-    product.price * quantity + extended_price * product_quantity
+    product.price * quantity + extended_price * quantity
   end
   
   def sold_product
@@ -14,10 +14,18 @@ class WarehouseProduct < ApplicationRecord
   end
   
   def profit_percentage
-    extended_price * 100 /product.price
+    shopkeeper_product = ShopkeeperProduct.find_by(product_id: product.id)
+    quantity = shopkeeper_product&.product_quantity || 0
+    if quantity > 0
+    extended_price * 100 /product.price 
+    else
+    profit_percentage = 0
+    end
   end
 
   def profit
-    extended_price * product_quantity
+    shopkeeper_product = ShopkeeperProduct.find_by(product_id: product.id)
+    quantity = shopkeeper_product&.product_quantity || 0
+    extended_price * quantity
   end
 end

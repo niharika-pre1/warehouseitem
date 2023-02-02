@@ -27,6 +27,7 @@ class WarehouseProductsController < ApplicationController
       warehouse_product = @product.warehouse_products.find_by(product_id: @product.id)
       warehouse_product_quantity =warehouse_product.product_quantity.to_i
       warehouse_product.update(product_quantity: warehouse_product_quantity + 1)
+      redirect_to warehouse_products_path   
     else
       warehouse_product = @product.warehouse_products.create(warehouse_id: warehouse.id, product_quantity: 1)
       redirect_to warehouse_products_path   

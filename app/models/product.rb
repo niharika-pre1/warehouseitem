@@ -5,4 +5,5 @@ class Product < ApplicationRecord
   has_many :shopkeepers,through: :shopkeeper_products
   has_many :warehouse_products
   has_many :warehouses,through: :warehouse_products
+  belongs_to :category
 end
