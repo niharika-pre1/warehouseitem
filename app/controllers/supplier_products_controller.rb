@@ -3,10 +3,6 @@ class SupplierProductsController < ApplicationController
     @supplier_products = SupplierProduct.all
   end
 
-  def new
-    @supplier_product = SupplierProduct.new
-  end
-
   def add_item
     supplier = Supplier.first
     @product = Product.find(params[:id])

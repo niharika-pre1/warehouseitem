@@ -1,3 +1,3 @@
 class Owner < User
- has_one :warehouse
+  has_one :warehouse
 end

@@ -1,13 +1,13 @@
- <h1 class="text-secondary"><center>Categories</center></h1>
-   <center><table class="table table-bordered" style="width: 50%">
-    <tr>
+<h1 class="text-secondary"><center>Categories</center></h1>
+<center><table class="table table-bordered" style="width: 50%">
+  <tr>
     <th>Category</th>
-  </tr>
-  <% @categories.each do |category| %>
-    <tr>
-      <td class="text-success"><%= category.name %></td>
+    </tr>
+    <% @categories.each do |category| %>
+  <tr>
+    <td class="text-success"><%= category.name %></td>
     </tr>
     <td><%= link_to 'show', category_products_path(category),class: "btn btn-warning" %></td>
-  <% end %>
+    <% end %>
 </table></center>
-   <center><td><%= link_to 'Back', controller: 'dashboard' %></td></center>
+<center><td><%= link_to 'Back', controller: 'dashboard' %></td></center>
